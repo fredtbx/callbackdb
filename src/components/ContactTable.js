@@ -4,14 +4,14 @@ import ContactRow from './ContactRow';
 class ContactTable extends Component {
   render() {
     const rows = this.props.contacts.map(function (contact, index) {
-        return (
-          <ContactRow
-            key={index}
-            contact={contact}
-            changeAppMode={this.props.changeAppMode}
-          />
-        );
-      }.bind(this));
+      return (
+        <ContactRow
+          key={index}
+          contact={contact}
+          changeAppMode={this.props.changeAppMode}
+        />
+      );
+  }.bind(this));
     
       return(
         rows.length

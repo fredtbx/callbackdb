@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TopActions from './TopActions';
-import ContactTable from './ContactTable';
+//import ContactTable from './ContactTable';
+import Search from './Search';
 
 // component that contains all the logic and other smaller components
 // that form the Read Products view
@@ -43,18 +44,20 @@ class ReadContacts extends Component {
     const contactData = this.state.contacts;
     document.querySelector("div > h1").textContent = 'List all Contacts'
 
-    return (
-    
+    return (      
       <div className='overflow-hidden'>
-        <TopActions changeAppMode={this.props.changeAppMode} />
- 
-        <ContactTable 
-          contacts={contactData}
-          changeAppMode={this.props.changeAppMode}
-        />
+        <TopActions changeAppMode={this.props.changeAppMode} /> 
+        <Search contacts={contactData} changeAppMode={this.props.changeAppMode} />       
+        
+        
       </div>
     );
   }
 }
 
 export default ReadContacts;
+
+// <ContactTable 
+//           contacts={contactData}
+//           changeAppMode={this.props.changeAppMode}
+//         />

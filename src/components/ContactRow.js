@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class ContactRow extends Component {
   render() {
     const {c_id, c_name, c_company,c_phone, c_email, c_method, 
-            c_priority, c_next_contact_date, c_date_created} = this.props.contact;
+            c_priority, c_notes, c_next_contact_date, c_date_created} = this.props.contact;
     // console.log(contact);
-    let shortNotes = this.props.contact.c_notes.substring(0,15);
+    let shortNotes = c_notes.substring(0,15);
     return (
         <tr>
           <td>{c_name}</td>
