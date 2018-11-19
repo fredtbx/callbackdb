@@ -6,6 +6,7 @@ class NewContactForm extends Component {
     super(props)
       this.initialState = {
         c_name: '',
+        c_recruiter_company: '',
         c_company: '',
         c_phone: '',
         c_email: '',
@@ -27,6 +28,7 @@ class NewContactForm extends Component {
   handleSubmit() {
     const formData = {
       c_name: this.state.c_name,
+      c_recruiter_company: this.state.c_recruiter_company,
       c_company: this.state.c_company,
       c_phone: this.state.c_phone,
       c_email: this.state.c_email,
@@ -54,7 +56,7 @@ class NewContactForm extends Component {
   }
 
   render() {
-    const {c_name, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state;
+    const {c_name, c_recruiter_company, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state;
     document.querySelector("div > h1").textContent = 'Create a new contact';
     return(
       <div>
@@ -66,6 +68,12 @@ class NewContactForm extends Component {
             <Col>
               <label htmlFor="c_name">Contact Name:</label>            
               <input type="text" name="c_name" id="c_name" value={c_name} onChange={this.handleChange} placeholder="Contact Name" />
+            </Col>
+            </FormGroup>
+            <FormGroup>
+            <Col>
+              <label htmlFor="c_recruiter_company">Recruiter Company:</label>            
+              <input type="text" name="c_recruiter_company" id="c_recruiter_company" value={c_recruiter_company} onChange={this.handleChange} placeholder="Recruiter Company" />
             </Col>
             </FormGroup>
           <FormGroup>

@@ -27,7 +27,7 @@ class ReadOneContact extends Component {
     }
     
     render() {
-      const {c_name, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state.contacts;      
+      const {c_name, c_recruiter_company, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state.contacts;      
       document.querySelector("div > h1").textContent = 'Read One Contact'
       return(
         <div>
@@ -39,6 +39,12 @@ class ReadOneContact extends Component {
               <Col>         
                 <label htmlFor="c_name">Contact Name:</label>            
                 <input type="text" name="c_name" id="c_name" value={c_name} placeholder="Contact Name" />          
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col>         
+                <label htmlFor="c_recruiter_company">Recruiter Company:</label>            
+                <input type="text" name="c_recruiter_company" id="c_recruiter_company" value={c_recruiter_company} placeholder="Recruiter Company" />          
               </Col>
             </FormGroup>
             <FormGroup>

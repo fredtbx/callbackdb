@@ -20,6 +20,7 @@ class UpdateContact extends Component {
       }, function() {
       this.setState({ c_id: this.props.c_id });
       this.setState({ c_name: this.state.contacts.c_name });
+      this.setState({ c_recruiter_company: this.state.contacts.c_recruiter_company });
       this.setState({ c_company: this.state.contacts.c_company });
       this.setState({ c_phone: this.state.contacts.c_phone });
       this.setState({ c_email: this.state.contacts.c_email });
@@ -46,17 +47,19 @@ class UpdateContact extends Component {
     this.setState(this.initialState);
     event.preventDefault();
   }
-
-  handleSubmit() {  
+  
+  handleSubmit() {
+    const d = new Date();  
     const formData = {
       c_id: this.props.c_id,
       c_name: this.state.c_name,
+      c_recruiter_company: this.state.c_recruiter_company,
       c_company: this.state.c_company,
       c_phone: this.state.c_phone,
       c_email: this.state.c_email,
       c_method: this.state.c_method,
       c_priority: this.state.c_priority,
-      c_notes: this.state.c_notes,
+      c_notes: d.toDateString() + " - " + this.state.c_notes,
       c_next_contact_date: this.state.c_next_contact_date
     }
 
@@ -79,7 +82,7 @@ class UpdateContact extends Component {
   
   render() {
     
-    const {c_name, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state.contacts;
+    const {c_name, c_recruiter_company, c_company, c_phone, c_email, c_method, c_priority, c_notes, c_next_contact_date} = this.state.contacts;
     document.querySelector("div > h1").textContent = 'Update a contact';
     return(
       <div>
@@ -104,6 +107,12 @@ class UpdateContact extends Component {
           <Col> 
             <label htmlFor="c_name">Contact Name:</label>                   
             <input type="text" name="c_name" id="c_name" defaultValue={c_name} onChange={this.handleChange} placeholder="Contact Name" />
+          </Col>
+        </FormGroup>
+        <FormGroup>
+          <Col> 
+            <label htmlFor="c_recruiter_company">Recruiter Company:</label>                   
+            <input type="text" name="c_recruiter_company" id="c_recruiter_company" defaultValue={c_recruiter_company} onChange={this.handleChange} placeholder="Recruiter Company" />
           </Col>
         </FormGroup>
         <FormGroup>
